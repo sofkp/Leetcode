@@ -2,15 +2,10 @@
 class Solution {
     long mod = 1e9+7;
     long LCP(vector<vector<long>> &dp, vector<vector<int>> &lcp, string &s, int n, int i, int j) {
-        if ((i + j) == n) {
-            return 1;
-        }
-        if (i + j > n) {
-            return 0;
-        }
-        if (dp[i][j] != -1) {
-            return dp[i][j];
-        }
+        if ((i + j) == n) return 1;
+        if (i + j > n) { return 0;
+        if (dp[i][j] != -1) return dp[i][j];
+
         long ans = 0;
         if (s[i] == '0') return 0;
         ans =  LCP(dp, lcp,s, n, i, j + 1) % mod;
